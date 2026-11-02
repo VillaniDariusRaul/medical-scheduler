@@ -1,0 +1,25 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:postgresql://localhost:5432/medical_scheduler
+    username: darius
+    password: admin1234
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+spring.docker.compose.enabled: false
+
+jwt:
+  secret: ${JWT}
+  expiration: ${JWT_EXPIRATION}
+  refreshexpiration: ${JWT_REFRESH_EXPIRATION}
